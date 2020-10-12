@@ -6,10 +6,6 @@ print("Welcome to a stock market simulator!")
 print("In this realistic simulation of the stock market you will be given news stories, relevant trends, and chances to commit insider trading or fraud, don't get caught!")
 print("You will add to your investments every simulated week. It is important to note that money in the market cannot be recovered. You begin with a $10,000, you have 5 weeks to accumulate as much money as possible.")
 print("Good luck!!")
-z=0
-while z<5:
-    print(".")
-    z=z+1
 
 def news_story():
     print("This weeks headlines: ")
@@ -75,16 +71,76 @@ def starting_stocks():
     print(f"6. a share of arrowhead cost {arrowhead}")
     lewies_burgers=random.randint(20,23)
     print(f"7. a share of Lewies Burgers cost {lewies_burgers}")
-    return tesla,papermate,safeway,honda, chevron, arrowhead, lewies_burgers
-    
+    news_story()
+    total=10000
+    x=0
+    tesla_shares=0
+    papermate_shares=0
+    safeway_shares=0
+    honda_shares=0
+    chevron_shares=0
+    arrowhead_shares=0
+    lewies_burgers_shares=0
+    spent=[]
+    while x<7:
+            investment=(input("Type the number of the stock to invest in it or type 'done' if you are finished investing: "))
+            try:
+                investment=int(investment)
+                if investment!="done" and investment!="Done":
+                    if investment==1:
+                        how_much=int(input("How many shares of tesla would you like to buy: " ))
+                        tesla_shares=tesla_shares+how_much
+                        tesla_spent=tesla*how_much
+                        spent.append(tesla_spent)
+                    elif investment==2:
+                        how_much=int(input("How many shares of papermate would you like to buy: " ))
+                        papermate_shares=papermate_shares+how_much
+                        papermate_spent=papermate*how_much
+                        spent.append(papermate_spent)
+                    elif investment==3:
+                        how_much=int(input("How many shares of safeway would you like to buy: " ))
+                        safeway_shares=safeway_shares+how_much
+                        safeway_spent=safeway*how_much
+                        spent.append(safeway_spent)
+                    elif investment==4:
+                        how_much=int(input("How many shares of honda would you like to buy: " ))
+                        honda_shares=honda_shares+how_much
+                        honda_spent=honda*how_much
+                        spent.append(honda_spent)
+                    elif investment==5:
+                        how_much=int(input("How many shares of chevron would you like to buy: " ))
+                        chevron_shares=chevron_shares+how_much
+                        chevron_spent=chevron*how_much
+                        spent.append(chevron_spent)
+                    elif investment==6:
+                        how_much=int(input("How many shares of arrowhead would you like to buy: " ))
+                        arrowhead_shares=arrowhead_shares+how_much
+                        arrowhead_spent=arrowhead*how_much
+                        spent.append(arrowhead_spent)
+                    elif investment==7:
+                        how_much=int(input("How many shares of lewies_burgers would you like to buy: " ))
+                        lewies_burgers_shares=lewies_burgers_shares+how_much
+                        lewies_burgers_spent=lewies_burgers*how_much
+                        spent.append(lewies_burgers_spent)
+                total=total-sum(spent)
+                print(f"you have {total} dollars left")
+                x=x+1
+            except:
+                if investment=="done" or investment=="Done":
+                    total=total-sum(spent)
+                    print(f"you have {total} dollars left")
+                    break
+                else:
+                    print("input is invalid")
 
-def investment():
-    round_num=0
-    while round_num==0:
-        starting_stocks()
-        news_story()
-        round_num=+1
-investment()
+        #def investment():
+ #   round_num=0
+  #  while round_num==0:
+   #     starting_stocks()
+    #    news_story()
+     #   round_num=+1
+#investment()
+
 
 
 #def control_center():
@@ -100,3 +156,4 @@ investment()
 
 
 
+starting_stocks()
