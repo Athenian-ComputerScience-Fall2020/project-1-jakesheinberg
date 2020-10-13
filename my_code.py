@@ -3,7 +3,7 @@
 import random
 
 print("Welcome to a stock market simulator!")
-print("You will be given an arbitrary news story. Invest accordingly. This simulation is meant to provide practice for real investing.")
+print("You will be given an arbitrary news story. Every investment you make the news story changes. Only the final story matters for the market. Invest accordingly. This simulation is meant to provide practice for real investing.")
 print("You have $10,000 to spend")
 def news_story():#function selects news story and corresponding affect on market
     print("This weeks headlines: ")
@@ -85,97 +85,98 @@ final_profit=0#used to find the total profit if all rounds
 
 
 while y<3: #runs 3 rounds
-        news=news_story()
-        investment=(input("Type the number of the stock to invest in it or type 'done' if you are finished investing: "))
-        try:
-                investment=int(investment)
-                if investment!="done" and investment!="Done":
-                    if investment==1: #buying shares until line 133
-                        how_much=int(input("How many shares of tesla would you like to buy: " ))
-                        tesla_shares=tesla_shares+how_much
-                        tesla_spent=tesla*how_much
-                        spent.append(tesla_spent)
-                        spent2.append(tesla_spent)
-                    elif investment==2:
-                        how_much=int(input("How many shares of papermate would you like to buy: " ))
-                        papermate_shares=papermate_shares+how_much
-                        papermate_spent=papermate*how_much
-                        spent.append(papermate_spent)
-                        spent2.append(papermate_spent)                    
-                    elif investment==3:
-                        how_much=int(input("How many shares of safeway would you like to buy: " ))
-                        safeway_shares=safeway_shares+how_much
-                        safeway_spent=safeway*how_much
-                        spent.append(safeway_spent)
-                        spent2.append(safeway_spent)
-                    elif investment==4:
-                        how_much=int(input("How many shares of honda would you like to buy: " ))
-                        honda_shares=honda_shares+how_much
-                        honda_spent=honda*how_much
-                        spent.append(honda_spent)
-                        spent2.append(honda_spent)
-                    elif investment==5:
-                        how_much=int(input("How many shares of chevron would you like to buy: " ))
-                        chevron_shares=chevron_shares+how_much
-                        chevron_spent=chevron*how_much
-                        spent.append(chevron_spent)
-                        spent2.append(chevron_spent)
-                    elif investment==6:
-                        how_much=int(input("How many shares of arrowhead would you like to buy: " ))
-                        arrowhead_shares=arrowhead_shares+how_much
-                        arrowhead_spent=arrowhead*how_much
-                        spent.append(arrowhead_spent)
-                        spent2.append(arrowhead_spent)
-                    elif investment==7:
-                        how_much=int(input("How many shares of lewies_burgers would you like to buy: " ))
-                        lewies_burgers_shares=lewies_burgers_shares+how_much
-                        lewies_burgers_spent=lewies_burgers*how_much
-                        spent.append(lewies_burgers_spent)
-        except:
-            if investment=="done" or investment=="Done":#finished round protocal
-                total=total-sum(spent)
-                spent=[]
-                print(f"You have {total} dollars left in the bank")
-                totalInMarket=sum(spent2)
-                stocksafterchange=[]
-                stocks_changing=[tesla, papermate, safeway, honda, chevron, arrowhead, lewies_burgers]
-                for x in stocks_changing:
-                    x=x*news #multiplys all stocks buy result of the news story function
-                    stocksafterchange.append(x)
-                profit=sum(stocksafterchange)-totalInMarket
-                profit=round(profit, 2)
-                if profit>0:
-                    print(f"You made {profit} dollars in profit this round")
-                elif profit==0:
-                    print("You broke even this round")
-                elif profit<0:
-                    print(f"You lost {profit} dollars this round")
-                print("ROUND COMPLETED")
-                final_profit=final_profit+profit
-                tesla=tesla*news#setting the new stock values to print
-                tesla=round(tesla,2)
-                papermate=papermate*news
-                papermate=round(papermate, 2)
-                safeway=safeway*news
-                safeway=round(safeway, 2)
-                honda=honda*news
-                honda=round(honda,2)
-                chevron=chevron*news
-                chevron=round(chevron, 2)
-                arrowhead=arrowhead*news
-                arrowhead=round(arrowhead,2)
-                lewies_burgers=lewies_burgers*news
-                lewies_burgers=round(lewies_burgers, 2)           
-                print(f"1. a share of tesla cost {tesla}")
-                print(f"2. a share of papermate cost {papermate}")
-                print(f"3. a share of safeway cost {safeway}")
-                print(f"4. a share of honda cost {honda}")
-                print(f"5. a share of chevron cost {chevron}")
-                print(f"6. a share of arrowhead cost {arrowhead}")
-                print(f"7. a share of Lewies Burgers cost {lewies_burgers}")
-                y=y+1
-            else:
-                print("input is invalid")
+            news=news_story()
+            investment=(input("Type the number of the stock to invest in it or type 'done' if you are finished investing: "))
+            try:
+                    investment=int(investment)
+                    if investment!="done" and investment!="Done":
+                        if investment==1: #buying shares until line 133
+                            how_much=int(input("How many shares of tesla would you like to buy: " ))
+                            tesla_shares=tesla_shares+how_much
+                            tesla_spent=tesla*how_much
+                            spent.append(tesla_spent)
+                            spent2.append(tesla_spent)
+                        elif investment==2:
+                            how_much=int(input("How many shares of papermate would you like to buy: " ))
+                            papermate_shares=papermate_shares+how_much
+                            papermate_spent=papermate*how_much
+                            spent.append(papermate_spent)
+                            spent2.append(papermate_spent)                    
+                        elif investment==3:
+                            how_much=int(input("How many shares of safeway would you like to buy: " ))
+                            safeway_shares=safeway_shares+how_much
+                            safeway_spent=safeway*how_much
+                            spent.append(safeway_spent)
+                            spent2.append(safeway_spent)
+                        elif investment==4:
+                            how_much=int(input("How many shares of honda would you like to buy: " ))
+                            honda_shares=honda_shares+how_much
+                            honda_spent=honda*how_much
+                            spent.append(honda_spent)
+                            spent2.append(honda_spent)
+                        elif investment==5:
+                            how_much=int(input("How many shares of chevron would you like to buy: " ))
+                            chevron_shares=chevron_shares+how_much
+                            chevron_spent=chevron*how_much
+                            spent.append(chevron_spent)
+                            spent2.append(chevron_spent)
+                        elif investment==6:
+                            how_much=int(input("How many shares of arrowhead would you like to buy: " ))
+                            arrowhead_shares=arrowhead_shares+how_much
+                            arrowhead_spent=arrowhead*how_much
+                            spent.append(arrowhead_spent)
+                            spent2.append(arrowhead_spent)
+                        elif investment==7:
+                            how_much=int(input("How many shares of lewies_burgers would you like to buy: " ))
+                            lewies_burgers_shares=lewies_burgers_shares+how_much
+                            lewies_burgers_spent=lewies_burgers*how_much
+                            spent.append(lewies_burgers_spent)
+            except:
+                if investment=="done" or investment=="Done":#finished round protocal
+                    total=total-sum(spent)
+                    spent=[]
+                    print(f"You have {total} dollars left in the bank")
+                    totalInMarket=sum(spent2)
+                    stocksafterchange=[]
+                    stocks_changing=[tesla, papermate, safeway, honda, chevron, arrowhead, lewies_burgers]
+                    for x in stocks_changing:
+                        x=x*news #multiplys all stocks buy result of the news story function
+                        stocksafterchange.append(x)
+                    profit=sum(stocksafterchange)-totalInMarket
+                    profit=round(profit, 2)
+                    if profit>0:
+                        print(f"You made {profit} dollars in profit this round")
+                    elif profit==0:
+                        print("You broke even this round")
+                    elif profit<0:
+                        print(f"You lost {profit} dollars this round")
+                    print("ROUND COMPLETED")
+                    final_profit=final_profit+profit
+                    tesla=tesla*news#setting the new stock values to print
+                    tesla=round(tesla,2)
+                    papermate=papermate*news
+                    papermate=round(papermate, 2)
+                    safeway=safeway*news
+                    safeway=round(safeway, 2)
+                    honda=honda*news
+                    honda=round(honda,2)
+                    chevron=chevron*news
+                    chevron=round(chevron, 2)
+                    arrowhead=arrowhead*news
+                    arrowhead=round(arrowhead,2)
+                    lewies_burgers=lewies_burgers*news
+                    lewies_burgers=round(lewies_burgers, 2)           
+                    print(f"1. a share of tesla cost {tesla}")
+                    print(f"2. a share of papermate cost {papermate}")
+                    print(f"3. a share of safeway cost {safeway}")
+                    print(f"4. a share of honda cost {honda}")
+                    print(f"5. a share of chevron cost {chevron}")
+                    print(f"6. a share of arrowhead cost {arrowhead}")
+                    print(f"7. a share of Lewies Burgers cost {lewies_burgers}")
+                    news=news_story()
+                    y=y+1
+                else:
+                    print("input is invalid")
 print(" ")
 print(" ")
 print(f"The total result of you money in the market was {final_profit} dollars!")   
