@@ -69,9 +69,9 @@ arrowhead=random.randint(80,90)
 print(f"6. a share of arrowhead cost {arrowhead}")
 lewies_burgers=random.randint(20,23)
 print(f"7. a share of Lewies Burgers cost {lewies_burgers}")
-total=10000
-y=0
-    #setting shares bought: 
+total=10000 #used to find how much money you have left
+y=0#used for while loop
+    #setting shares bought until line 81: 
 tesla_shares=0
 papermate_shares=0
 safeway_shares=0
@@ -90,7 +90,7 @@ while y<3: #runs 3 rounds
         try:
                 investment=int(investment)
                 if investment!="done" and investment!="Done":
-                    if investment==1:
+                    if investment==1: #buying shares until line 133
                         how_much=int(input("How many shares of tesla would you like to buy: " ))
                         tesla_shares=tesla_shares+how_much
                         tesla_spent=tesla*how_much
@@ -132,7 +132,7 @@ while y<3: #runs 3 rounds
                         lewies_burgers_spent=lewies_burgers*how_much
                         spent.append(lewies_burgers_spent)
         except:
-            if investment=="done" or investment=="Done":
+            if investment=="done" or investment=="Done":#finished round protocal
                 total=total-sum(spent)
                 spent=[]
                 print(f"You have {total} dollars left in the bank")
@@ -140,7 +140,7 @@ while y<3: #runs 3 rounds
                 stocksafterchange=[]
                 stocks_changing=[tesla, papermate, safeway, honda, chevron, arrowhead, lewies_burgers]
                 for x in stocks_changing:
-                    x=x*news
+                    x=x*news #multiplys all stocks buy result of the news story function
                     stocksafterchange.append(x)
                 profit=sum(stocksafterchange)-totalInMarket
                 profit=round(profit, 2)
@@ -152,7 +152,7 @@ while y<3: #runs 3 rounds
                     print(f"You lost {profit} dollars this round")
                 print("ROUND COMPLETED")
                 final_profit=final_profit+profit
-                tesla=tesla*news
+                tesla=tesla*news#setting the new stock values to print
                 tesla=round(tesla,2)
                 papermate=papermate*news
                 papermate=round(papermate, 2)
@@ -176,8 +176,9 @@ while y<3: #runs 3 rounds
                 y=y+1
             else:
                 print("input is invalid")
-
-print(f"The total result of you money in the market was {final_profit} dollars")   
+print(" ")
+print(" ")
+print(f"The total result of you money in the market was {final_profit} dollars!")   
 
     
 
