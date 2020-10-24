@@ -2,9 +2,7 @@
 #  
 import random
 
-print("Welcome to a stock market simulator!")
-print("You will be given an arbitrary news story. Every investment you make the news story changes. Only the final story matters for the market. Invest accordingly. This simulation is meant to provide practice for real investing.")
-print("You have $10,000 to spend")
+
 def news_story():#function selects news story and corresponding affect on market
     print("This weeks headlines: ")
     print(".")
@@ -52,7 +50,9 @@ def news_story():#function selects news story and corresponding affect on market
     return news_value
 
 
-
+print("Welcome to a stock market simulator!")
+print("You will be given an arbitrary news story. Every investment you make the news story changes. Only the final story matters for the market. Invest accordingly. This simulation is meant to provide practice for real investing.")
+print("You have $10,000 to spend")
 
 #The starting price for stocks
 tesla=random.randint(100,115)
